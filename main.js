@@ -62,10 +62,9 @@ define(function (require, exports, module) {
     
     // Init the UI
     function init() {
-        extensionManager.init(function () {
-            _addMenuEntry();
-        });
+        extensionManager.init();
+        _addMenuEntry();
     }
 
-    init();
+    $(init);
 });

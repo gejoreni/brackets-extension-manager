@@ -37,6 +37,7 @@ define(function (require, exports, module) {
 
 	// Extension modules
 	var client = require("extensionManagerClient");
+	var Extension = require("Extension");
 	
 	var _init = false;
 	var _extensions;
@@ -241,7 +242,7 @@ define(function (require, exports, module) {
 
 		// load the extensions
 		$loading.show();
-		client.list(function (res) {
+		Extension.load(function (res) {
 			$loading.hide();
 			_extensions = res;
 
@@ -259,17 +260,12 @@ define(function (require, exports, module) {
 	}
 
 	// Init the UI
-	function init(callback) {
-        $(function () {
-			client.init(function () {
-				_loadStyle();
-				_loadTemplate(function (template) {
-					_setupTemplate(template);
-					_init = true;
-					callback();
-				});
-			});
-        });
+	function init() {
+		_loadStyle();
+		_loadTemplate(function (template) {
+			_setupTemplate(template);
+			_init = true;
+		});
 	}
 
 	exports.init = init;
