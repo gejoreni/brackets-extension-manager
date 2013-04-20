@@ -34,6 +34,11 @@
 	if (process.platform == "win32") {
 	    // Windows: C:\Users\<user>\AppData\Roaming\Brackets\extensions\user on windows.
 		pathExtensions = paths.join(process.env["USERPROFILE"], "AppData", "Roaming", "Brackets", "extensions");
+		
+	  	 //For Edge Code Users
+		 // edge code C:\Users\temp\AppData\Roaming\Adobe\Edge Code\extensions\disabled
+       		 // pathExtensions = paths.join(process.env["USERPROFILE"], "AppData", "Roaming", "Adobe",  "Edge Code", "extensions");
+        
 	} else {
 	    // Mac/Linux: /Users/<user>/Application Support/Brackets/extensions/user on the mac, and
 		pathExtensions = paths.join(process.env["HOME"], "Library", "Application Support", "Brackets", "extensions");
